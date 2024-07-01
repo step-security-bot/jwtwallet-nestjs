@@ -4,4 +4,13 @@ import type { JWTWalletModuleModuleOptions } from "./jwtwallet.module-options.in
 export const ConfigModuleBuilder =
   new ConfigurableModuleBuilder<JWTWalletModuleModuleOptions>()
     .setClassMethodName("forRoot")
+    .setExtras(
+      {
+        isGlobal: true
+      },
+      (definition, extras) => ({
+        ...definition,
+        global: extras.isGlobal
+      })
+    )
     .build();
