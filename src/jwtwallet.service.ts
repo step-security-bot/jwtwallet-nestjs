@@ -2,8 +2,8 @@ import { Inject, Injectable, Logger } from "@nestjs/common";
 import { ConfigModuleBuilder } from "./jwtwallet.module-definition";
 import { JWTWalletModuleModuleOptions } from "./jwtwallet.module-options.interface";
 
-import { FlattenedJWSInput, JWSHeaderParameters } from "jose";
 import * as jose from "jose";
+import { FlattenedJWSInput, JWSHeaderParameters } from "jose";
 import { v4 } from "uuid";
 import {
   KeyIdDidNotMatchError,
@@ -175,7 +175,11 @@ export class JWTWalletService {
   }
 
   public async signToken(object: jose.JWTPayload, expiresOn: number) {
-    if (this.privateKey === undefined || this.privateKeyKid === undefined) {
+    if (
+      this.privateKey === undefined ||
+      this.privateKeyKid === undefined ||
+      this.privateKeyAlgoritm === undefined
+    ) {
       this.logger.error("No private key provided");
       throw new PrivateKeyMissingError();
     }
@@ -193,7 +197,7 @@ export class JWTWalletService {
       .setIssuedAt()
       .setNotBefore("0s")
       .setProtectedHeader({
-        alg: this.privateKey.type,
+        alg: this.privateKeyAlgoritm,
         kid: this.privateKeyKid
       })
       .sign(this.privateKey);

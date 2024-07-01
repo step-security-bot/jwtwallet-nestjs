@@ -16,7 +16,8 @@
   "main": "./dist/jwtwallet.module.js",
   "types": "./dist/jwtwallet.module.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "tsc",
