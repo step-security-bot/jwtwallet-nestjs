@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/jwtwallet/jwtwallet-nestjs/compare/v1.0.1...v1.0.2) (2024-07-01)
+
+
+### Bug Fixes
+
+* **module-definition:** Made the module global ([e5ace92](https://github.com/jwtwallet/jwtwallet-nestjs/commit/e5ace92e9a9bcc0699497e9d002fd63ff0430e11))
+
 ## [1.0.1](https://github.com/jwtwallet/jwtwallet-nestjs/compare/v1.0.0...v1.0.1) (2024-07-01)
 
 
