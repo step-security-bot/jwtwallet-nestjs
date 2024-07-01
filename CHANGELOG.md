@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/jwtwallet/jwtwallet-nestjs/compare/v1.0.2...v1.0.3) (2024-07-01)
+
+
+### Bug Fixes
+
+* Fixed signing algoritm issue ([f2f188a](https://github.com/jwtwallet/jwtwallet-nestjs/commit/f2f188ad91347119a757926b392313c4cd167f45))
+
 ## [1.0.2](https://github.com/jwtwallet/jwtwallet-nestjs/compare/v1.0.1...v1.0.2) (2024-07-01)
 
 
