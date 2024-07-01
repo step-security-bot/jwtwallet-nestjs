@@ -1,0 +1,143 @@
+{
+  "name": "jwtwallet-nestjs",
+  "version": "0.0.2",
+  "description": "Manage your jwks keys easily and securely",
+  "author": {
+    "email": "mehmet@appac.ltd",
+    "name": "Mehmet Emin Kartal",
+    "url": "https://appac.ltd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jwtwallet/jwtwallet-nestjs"
+  },
+  "license": "GPL-3.0-only",
+  "type": "commonjs",
+  "main": "./dist/jwtwallet.module.js",
+  "types": "./dist/jwtwallet.module.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "rimraf dist",
+    "typechecks": "tsc --noEmit",
+    "clean": "rimraf build && rimraf dist",
+    "release": "semantic-release",
+    "bundle": "unbuild",
+    "lint": "eslint .",
+    "sariflint": "eslint . --format @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif",
+    "test": "jest"
+  },
+  "keywords": [
+    "jwt",
+    "jwks",
+    "keys",
+    "management"
+  ],
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.3.10",
+    "@nestjs/config": "^3.2.3",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/platform-express": "^10.0.0",
+    "jose": "^5.6.2",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@microsoft/eslint-formatter-sarif": "^3.1.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.0.7",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "@types/node": "^20.3.1",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jest": "^28.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.7",
+    "semantic-release": "^24.0.0",
+    "typescript": "5.3.3"
+  },
+  "eslintConfig": {
+    "env": {
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "project": "tsconfig.json"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "eslint-plugin-node"
+    ],
+    "ignorePatterns": [
+      "node_modules/",
+      "dist/"
+    ],
+    "rules": {
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "@typescript-eslint/no-extraneous-class": 0,
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-console": "error",
+      "eol-last": [
+        "error",
+        "always"
+      ],
+      "node/no-process-env": [
+        "error"
+      ],
+      "@typescript-eslint/no-var-requires": "warn",
+      "no-unreachable": [
+        "warn"
+      ],
+      "@typescript-eslint/no-floating-promises": "error"
+    }
+  },
+  "prettier": {
+    "trailingComma": "none"
+  },
+  "packageManager": "yarn@4.3.1",
+  "engines": {
+    "node": ">=20.12.2"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  }
+}

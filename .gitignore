@@ -1,0 +1,13 @@
+.history
+
+node_modules
+.DS_Store
+.history
+build
+dist
+
+# Yarn 4
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*

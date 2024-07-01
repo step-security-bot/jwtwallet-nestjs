@@ -1,0 +1,30 @@
+name: Eslint
+
+on:
+  push:
+
+jobs:
+  lint:
+    runs-on: "ubuntu-latest"
+    permissions:
+      # required for all workflows
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+      - name: Install yarn
+        run: yarn install --immutable
+      - name: Check Linting
+        run: yarn sariflint
+        continue-on-error: true
+      - name: Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: eslint-results.sarif
+          wait-for-processing: true
+          category: lint
